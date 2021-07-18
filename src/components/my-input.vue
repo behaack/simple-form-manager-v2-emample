@@ -36,9 +36,3 @@ export default defineComponent({
   }
 });
 </script>
-
-<style>
-input {
-
-}
-</style>
