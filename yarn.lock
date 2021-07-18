@@ -7168,10 +7168,10 @@ signal-exit@^3.0.0, signal-exit@^3.0.2:
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.3.tgz#a1410c2edd8f077b08b4e253c8eacfcaf057461c"
   integrity sha512-VUJ49FC8U1OxwZLxIbTTrDvLnf/6TDgxZcK8wxR8zs13xpx7xbG60ndBlhNrFi2EMuFRoeDoJO7wthSLq42EjA==
 
-simple-form-manager-v2@^1.0.11:
-  version "1.0.11"
-  resolved "https://registry.yarnpkg.com/simple-form-manager-v2/-/simple-form-manager-v2-1.0.11.tgz#2080417bc7b5a98f8e6bfb5a39a0a5aabab2d2b2"
-  integrity sha512-gPqcIMcYPm4ncnUuzP3RmSAhK1JjytDvnxtV0rTU6U0NrUkTfkkSdXGh/E9Mn4x13UJbA2VIPyAlXTCDg+VtMw==
+simple-form-manager-v2@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/simple-form-manager-v2/-/simple-form-manager-v2-1.1.0.tgz#097d40f36763da2b9a9bfd459971a2bf61054f26"
+  integrity sha512-8ciQRc3/Dk/pl1T3sVJgRvxoLNqzSPJ1EEVkqQW0Dsg6Qxs/HVHE7nBgdi1DisTTuhdVYtn4dw8aGUlG3Jinug==
 
 simple-swizzle@^0.2.2:
   version "0.2.2"

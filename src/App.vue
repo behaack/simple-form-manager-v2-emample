@@ -5,17 +5,17 @@
     <my-input 
       label="First Name"
       field-name="firstName"
-      v-model="fm"    
+      :model-value="fm"    
     />
     <my-input 
       label="Last Name"
       field-name="lastName"
-      v-model="fm"    
+      :model-value="fm"    
     />
     <my-input 
       label="Email Address"
       field-name="emailAddress"
-      v-model="fm"    
+      :model-value="fm"    
     />    
     <div style="padding: 10px">
       <input
