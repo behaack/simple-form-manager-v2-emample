@@ -7168,6 +7168,11 @@ signal-exit@^3.0.0, signal-exit@^3.0.2:
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.3.tgz#a1410c2edd8f077b08b4e253c8eacfcaf057461c"
   integrity sha512-VUJ49FC8U1OxwZLxIbTTrDvLnf/6TDgxZcK8wxR8zs13xpx7xbG60ndBlhNrFi2EMuFRoeDoJO7wthSLq42EjA==
 
+simple-form-manager-v2@^1.0.9-0:
+  version "1.0.9-0"
+  resolved "https://registry.yarnpkg.com/simple-form-manager-v2/-/simple-form-manager-v2-1.0.9-0.tgz#0477d53cc9fa1a43430734d80bef1e321915a9fe"
+  integrity sha512-23ddXA+P6fz9jbouxWZzivhsUtjgng6ufwhkmsn+AITYrRJMO/XwHovz1TjX7jff7s005h/ROnd8kZ/+jmvh5g==
+
 simple-swizzle@^0.2.2:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/simple-swizzle/-/simple-swizzle-0.2.2.tgz#a4da6b635ffcccca33f70d17cb92592de95e557a"
@@ -8124,6 +8129,11 @@ vue@^3.0.0:
     "@vue/compiler-dom" "3.1.5"
     "@vue/runtime-dom" "3.1.5"
     "@vue/shared" "3.1.5"
+
+vuelidate@^0.7.6:
+  version "0.7.6"
+  resolved "https://registry.yarnpkg.com/vuelidate/-/vuelidate-0.7.6.tgz#84100c13b943470660d0416642845cd2a1edf4b2"
+  integrity sha512-suzIuet1jGcyZ4oUSW8J27R2tNrJ9cIfklAh63EbAkFjE380iv97BAiIeolRYoB9bF9usBXCu4BxftWN1Dkn3g==
 
 watchpack-chokidar2@^2.0.1:
   version "2.0.1"
