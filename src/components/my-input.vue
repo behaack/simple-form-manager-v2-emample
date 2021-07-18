@@ -16,9 +16,6 @@ import { defineComponent, ref } from 'vue';
 
 export default defineComponent({
   name: 'my-imput',
-  emits: [
-    'update:modelValue'
-  ],
   props: {
     label: {
       type: String,

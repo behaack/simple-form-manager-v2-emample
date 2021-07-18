@@ -1,6 +1,8 @@
-# simple-form-manager-v2-example-project
+# simple-form-manager-v2-example-project (using vue js)
 
-## Project setup
+## Running the application
+
+### Project setup
 ```
 yarn install
 ```
@@ -10,10 +12,7 @@ yarn install
 yarn serve
 ```
 
-### Compiles and minifies for production
-```
-yarn build
-```
+## Project Description
+This project is to demonstate how easy it is to use Simple Form Manager V2, with and without a wrapper around your form controls
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Note there is no code in the control wrapper component (my-input.vue). It accepts 3 props and then wires to props to the html template. The wrapper eliminated a lot of the control boilerplate. 
