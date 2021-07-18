@@ -1,28 +1,72 @@
 <template>
-<form @submit.prevent="onSubmit">
-  <my-input 
-    label="First Name"
-    field-name="firstName"
-    v-model="fm"    
-  />
-  <my-input 
-    label="Last Name"
-    field-name="lastName"
-    v-model="fm"    
-  />
-  <my-input 
-    label="Email Address"
-    field-name="emailAddress"
-    v-model="fm"    
-  />    
-  <input
-    :disabled="!fm.formSubmittable"
-    type="submit"
-    label="Submit"
-  />    
+<div>
+  <form @submit.prevent="onSubmit">
+    <div>Form with wrapper around the input control</div>
+    <my-input 
+      label="First Name"
+      field-name="firstName"
+      v-model="fm"    
+    />
+    <my-input 
+      label="Last Name"
+      field-name="lastName"
+      v-model="fm"    
+    />
+    <my-input 
+      label="Email Address"
+      field-name="emailAddress"
+      v-model="fm"    
+    />    
+    <div style="padding: 10px">
+      <input
+        :disabled="!fm.formSubmittable"
+        type="submit"
+        label="Submit"
+      />
+    </div>
+  </form>
+  <br />
+  <br />
+  <form @submit.prevent="onSubmit">
+    <div>Form using the same FormManager instance but without a wrapper around the inputs. Same results, but a lot more tedious and repetitive.</div>
+    <div style="padding: 10px">
+      <div style="font-size: 14px">First Name</div>
+      <input 
+        @blur="fm.onBlur('firstName')"
+        v-model="fm.fields.firstName.value"    
+      />
+      <div style="font-size: 11px; color: red" v-if="fm.showFieldError('firstName')">{{ fm.fields.firstName.errorMessage }}</div>      
+    </div>      
+    <div style="padding: 10px">
+      <div style="font-size: 14px">Last Name</div>      
+      <input 
+        @blur="fm.onBlur('lastName')"
+        v-model="fm.fields.lastName.value"    
+      />
+      <div style="font-size: 11px; color: red" v-if="fm.showFieldError('lastName')">{{ fm.fields.firstName.errorMessage }}</div>      
+    </div>
+    <div style="padding: 10px">    
+      <div style="font-size: 14px">Email Address</div>      
+      <input 
+        @blur="fm.onBlur('emailAddress')"
+        v-model="fm.fields.emailAddress.value"
+      />
+      <div style="font-size: 11px; color: red" v-if="fm.showFieldError('emailAddress')">{{ fm.fields.firstName.errorMessage }}</div>        
+    </div>
+    <div style="padding: 10px">
+      <input
+        :disabled="!fm.formSubmittable"
+        type="submit"
+        label="Submit"
+      />   
+    </div>
+  </form>
+  <br />
+  <div>fm.data</div>
   <pre>{{ fm.data }}</pre>
-  <pre>{{ fm.running }}</pre>
-</form>
+  <div>fm.fields</div>
+  <pre>{{ fm.fields }}</pre>  
+</div>
 </template>
 
 <script lang="ts">
