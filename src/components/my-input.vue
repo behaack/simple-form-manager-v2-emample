@@ -33,6 +33,10 @@ export default defineComponent({
     },    
   },
   setup(props, context) {
+    watch(() => props.modelValue.running, () => {
+      value.value = props.modelValue.fields[props.fieldName].value 
+    })  
+  
     const onBlur = (): void => {
       props.modelValue.onBlur(props.fieldName) 
       context.emit('blur')
@@ -43,7 +47,8 @@ export default defineComponent({
       context.emit('update:modelValue', value)
     }
 
-    const value = ref()       
+    const value = ref()    
+    
     return {
       onBlur,
       onUpdate,      
