@@ -12,11 +12,15 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
+import { defineComponent, ref, watch } from 'vue';
 
 
 export default defineComponent({
   name: 'my-imput',
+  emits: [
+    'blur', 
+    'update:modelValue'
+  ],    
   props: {
     fieldName: {
       type: String,

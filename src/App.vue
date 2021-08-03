@@ -1,7 +1,7 @@
 <template>
 <div>
   <form @submit.prevent="onSubmit">
-    <div>Form with wrapper around the input control</div>
+    <div>Form with a light wrapper around the input control to make adding new controls WAY easy</div>
     <my-input 
       label="First Name"
       field-name="firstName"
@@ -26,54 +26,39 @@
     </div>
   </form>
   <br />
-  <br />
   <form @submit.prevent="onSubmit">
-    <div>Form using the same FormManager instance but without a wrapper around the inputs. Same results, but a lot more tedious and repetitive.</div>
-    <div style="padding: 10px">
-      <div style="font-size: 14px">First Name</div>
-      <input 
-        @blur="fm.onBlur('firstName')"
-        v-model="fm.fields.firstName.value"    
-      />
-      <div style="font-size: 11px; color: red" v-if="fm.showFieldError('firstName')">{{ fm.fields.firstName.errorMessage }}</div>      
-    </div>      
-    <div style="padding: 10px">
-      <div style="font-size: 14px">Last Name</div>      
-      <input 
-        @blur="fm.onBlur('lastName')"
-        v-model="fm.fields.lastName.value"    
-      />
-      <div style="font-size: 11px; color: red" v-if="fm.showFieldError('lastName')">{{ fm.fields.firstName.errorMessage }}</div>      
-    </div>
-    <div style="padding: 10px">    
-      <div style="font-size: 14px">Email Address</div>      
-      <input 
-        @blur="fm.onBlur('emailAddress')"
-        v-model="fm.fields.emailAddress.value"
-      />
-      <div style="font-size: 11px; color: red" v-if="fm.showFieldError('emailAddress')">{{ fm.fields.firstName.errorMessage }}</div>        
-    </div>
+    <div>Form with a light wrapper around the input control to make adding new controls WAY easy</div>
+    <my-input 
+      label="Password"
+      field-name="password"
+      :model-value="fm2"    
+      @update:modelValue="onPasswordUpdate"
+    />
+    <my-input 
+      label="Password Confirmation"
+      field-name="passwordConfirmation"
+      :model-value="fm2"  
+      @update:modelValue="onPasswordUpdate"  
+    />
     <div style="padding: 10px">
       <input
-        :disabled="!fm.formSubmittable"
+        :disabled="!fm2.formSubmittable"
         type="submit"
         label="Submit"
-      />   
+      />
     </div>
-  </form>
+  </form>  
   <br />
-  <div>fm.data</div>
-  <pre>{{ fm.data }}</pre>
-  <div>fm.fields</div>
-  <pre>{{ fm.fields }}</pre>  
+  <pre>{{ fm2.fields }}</pre>
 </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, onBeforeMount, onUnmounted, ref } from 'vue';
+import { defineComponent, onMounted, onUnmounted, ref } from 'vue';
 import FM from 'simple-form-manager-v2'
 import myInput from './components/my-input.vue'
 import myFormSchema from './assets/myFormSchema'
+import passwordFormSchema from './assets/passwordFormSchema'
 
 export default defineComponent({
   name: 'App',
@@ -82,17 +67,28 @@ export default defineComponent({
   },
   setup () {
     const fm = ref(new FM(myFormSchema))
+    const fm2 = ref(new FM(passwordFormSchema))
 
-    onBeforeMount(() => {
+    onMounted(() => {
       fm.value.fields.firstName.value = ""
       fm.value.fields.lastName.value = "Draper"
       fm.value.fields.emailAddress.value = "bdraper@gmail.com"
       fm.value.start(100)
+
+      fm2.value.fields.password.value = ""
+      fm2.value.fields.passwordConfirmation.value = ""
+      fm.value.start()
     })
 
     onUnmounted(() => {
       fm.value.stop()
+      fm2.value.stop()
     }) 
+
+    const onPasswordUpdate = () => {
+      const isMatch = (fm2.value.fields.password.value === fm2.value.fields.passwordConfirmation.value)
+      fm2.value.setFieldValidationStatus('passwordConfirmation', 'mustMatch', isMatch)
+    }
     
     const onSubmit = () => {
       window.alert(JSON.stringify(fm.value.data))
@@ -100,7 +96,9 @@ export default defineComponent({
 
     return {
       fm,
-      onSubmit
+      fm2,
+      onSubmit,
+      onPasswordUpdate
     }    
   }
 });
